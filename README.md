@@ -44,7 +44,7 @@ Reading from pipe:
 
 Player 1 (i.e. 'O' and 'o') will always be red with lighter red colors indicating earlier moves.
 
-Player 2 (i.e. 'X' and 'x') will always be blue with ligher blue colors also indicating earlier moves.
+Player 2 (i.e. 'X' and 'x') will always be blue with lighter blue colors also indicating earlier moves.
 
 ![Example Picture](https://github.com/nmei-42/42-filler-visualizer/blob/master/screenshots/example.png)
 
