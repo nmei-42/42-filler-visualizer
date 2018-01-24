@@ -147,15 +147,15 @@ int			read_turn(t_game *game, int fd, ssize_t *ret, char *line)
 
 	gss = game->gss;
 	*ret = ft_get_next_line(fd, &line);
-	if (strstr(line, "fin"))
+	if (ft_strstr(line, "fin"))
 	{
 		(gss->flags & P1_PLACED) ? (game->p1_rt)-- : (game->p2_rt)--;
 		free(line);
 		return (1);
 	}
-	else if (strstr(line, "Plateau "))
+	else if (ft_strstr(line, "Plateau "))
 		read_board(game, fd, ret, line);
-	else if (strstr(line, "Piece "))
+	else if (ft_strstr(line, "Piece "))
 	{
 		read_next_piece(game, fd, ret, line);
 		gss = game->gss;
