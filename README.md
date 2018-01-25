@@ -62,3 +62,5 @@ esc: Quit :(
 ### Acknowledgements
 
 Many thanks to "ashih" @ 42 USA for coming up with his own original implementation of a Filler visualizer using the MLX library first. This inspired me to make my own!
+
+Many thanks also to [qst0](https://github.com/qst0) for maintaining multiple versions of the mlx library and for including really awesome documentation!
