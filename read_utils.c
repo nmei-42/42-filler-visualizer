@@ -160,7 +160,7 @@ int			read_turn(t_game *game, int fd, ssize_t *ret, char *line)
 		read_next_piece(game, fd, ret, line);
 		gss = game->gss;
 		*ret = ft_get_next_line(fd, &line);
-		gss->flags |= (IS_P1(line[6])) ? P1_PLACED : 0;
+		gss->flags |= (ft_strchr(line, 'O')) ? P1_PLACED : 0;
 		(gss->flags & P1_PLACED) ? (game->p1_rt)++ : (game->p2_rt)++;
 		gss->piece_y = ft_atoi(line + 11);
 		gss->piece_x = ft_atoi(ft_strchr(line + 11, ' '));
