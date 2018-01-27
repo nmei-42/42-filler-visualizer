@@ -56,8 +56,12 @@ right arrow (→): move forward one turn
 down arrow (↓): move forward 9x
 up arrow (↑): move backward 9x
 r: Reset game back to turn 0
+p: Print the current player, board, and piece to console
 esc: Quit :(
 ```
+The command "p" can be especially useful for troubleshooting as you can copy paste the console output into a .txt and then `cat |` to your filler binary.
+
+![Example "p" usage](https://github.com/nmei-42/42-filler-visualizer/blob/master/screenshots/print_to_console_option.png)
 
 ### Acknowledgements
 
