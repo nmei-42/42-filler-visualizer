@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 09:52:48 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/26 16:35:49 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/26 20:42:10 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void			setup_env(t_envars *e)
 	e->size = e->w * e->h;
 	e->mlx = mlx_init();
 	e->win = mlx_new_window(e->mlx, e->w, e->h, "Filler Viz 42");
+	e->prev_turn = -1;
 	init_img(e);
 	mlx_key_hook(e->win, keydown_hook, e);
 	mlx_hook(e->win, 2, 0, key_pressed_hook, e);

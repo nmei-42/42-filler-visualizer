@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 18:30:14 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/23 00:34:37 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/26 20:42:05 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ typedef struct		s_envars
 	int				b_tpad;
 	int				b_row_space;
 	int				b_col_space;
+	int				prev_turn;
 	t_game			*g;
 	t_gslst			*curr_gs;
 	t_image			image;
