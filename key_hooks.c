@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 18:28:08 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/26 17:03:03 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/26 19:38:11 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,41 @@
 #include <libft.h>
 #include "filler_viz.h"
 
-static void	cleanup_env(t_envars *env)
+void		emancipate(t_envars *env)
 {
-	mlx_destroy_image(env->mlx, (&env->image)->image);
-	mlx_destroy_window(env->mlx, env->win);
+	int		i;
+	t_gslst	*curr;
+	t_gslst	*next;
+
+	curr = env->g->first;
+	while (curr)
+	{
+		i = 0;
+		if (!(curr->flags & TURN_SWITCH))
+		{
+			while (i < env->g->h)
+				free(curr->board[i++]);
+			free(curr->board);
+		}
+		i = 0;
+		while (i < curr->piece_h)
+			free(curr->piece[i++]);
+		free(curr->piece);
+		free(curr->color_tab);
+		next = curr->next;
+		free(curr);
+		curr = next;
+	}
 }
 
-void		reset_env(t_envars *env)
+static void	cleanup_env(t_envars *env)
 {
-	env->curr_gs = env->g->first;
-	render(env);
+	emancipate(env);
+	free(env->g->p1);
+	free(env->g->p2);
+	free(env->g->color_t_rt);
+	mlx_destroy_image(env->mlx, (&env->image)->image);
+	mlx_destroy_window(env->mlx, env->win);
 }
 
 void		print_current_gs(t_envars *env)
@@ -76,7 +101,10 @@ int			keydown_hook(int key, t_envars *env)
 		print_current_gs(env);
 	}
 	if (key == 15)
-		reset_env(env);
+	{
+		env->curr_gs = env->g->first;
+		render(env);
+	}
 	return (0);
 }
 
