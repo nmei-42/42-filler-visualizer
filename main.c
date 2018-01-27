@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 09:52:48 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/23 00:49:52 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/26 16:35:49 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,12 @@ void			disp_info(int mode)
 	}
 	else if (mode == 2)
 	{
-		ft_putstr("\n			Filler Viz 42!!\n\
+		ft_printf("\n			Filler Viz 42!!\n\
 		left arrow (←): move back one turn\n\
 		right arrow (→): move forward one turn\n\
 		down arrow (↓): move forward 9x\n\
 		up arrow (↑): move backward 9x\n\
+		p: Print the current player, board, and piece to console\n\
 		r: Reset game back to turn 0\n\
 		esc: Quit :(\n\n");
 	}

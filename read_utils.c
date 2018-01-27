@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 19:55:50 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/22 22:09:55 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/25 18:43:03 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,9 @@ int			read_turn(t_game *game, int fd, ssize_t *ret, char *line)
 **	test()
 **	Useful test function to make sure maps are being read in correctly
 **	Run `test(game);` after reading vm output to get lots of useful information
-**
+*/
+
+/*
 **#include <stdio.h>
 **
 **void	test(t_game *game)
