@@ -6,14 +6,17 @@
 #    By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/27 08:57:48 by nmei              #+#    #+#              #
-#    Updated: 2018/01/17 19:06:26 by nmei             ###   ########.fr        #
+#    Updated: 2018/01/26 16:26:32 by nmei             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-SRCS_DIR = ./
-RM = /bin/rm -f
 
+RM = /bin/rm -f
+CFLAGS = -Wall -Wextra -Werror -O2
+
+INCLUDES = -I ./includes/
+SRCS_DIR = ./
 FILES = ft_memset ft_bzero ft_memcpy ft_memccpy ft_memmove ft_memchr ft_memcmp \
 ft_strlen ft_strdup ft_strcpy ft_strncpy ft_strcat ft_strncat ft_strlcat \
 ft_strchr ft_strrchr ft_strstr ft_strnstr ft_strcmp ft_strncmp ft_atoi \
@@ -25,25 +28,36 @@ ft_putstr_fd ft_putendl_fd ft_putnbr_fd ft_lstnew ft_lstdelone ft_lstdel \
 ft_lstadd ft_lstiter ft_lstmap ft_memdup ft_lstlen ft_lstrev ft_abs ft_lstlast \
 ft_get_next_line ft_num_words ft_splitdel
 
-HEAD = -I ./includes
-CFLAGS = -Wall -Wextra -Werror
+PRINTF_INC = -I ./ft_printf/includes/
+PRINTF_DIR = ./ft_printf/
+PF_FILES = ft_printf parse_prespecifiers parse_specifier\
+printf_double_utils printf_gen_utils printf_int_utils printf_utf_utils\
+double_handlers int_handlers special_handlers hard_double_handlers \
+str_char_handlers uint_handlers
 
 CFILES = $(patsubst %, $(SRCS_DIR)%.c, $(FILES))
 OFILES = $(patsubst %, %.o, $(FILES))
+
+PF_CFILES = $(patsubst %, $(PRINTF_DIR)%.c, $(PF_FILES))
+PF_OFILES = $(patsubst %, $(SRCS_DIR)%.o, $(PF_FILES))
 
 .PHONY: all clean fclean re
 
 all : $(NAME)
 
-$(NAME) : $(OFILES)
-	ar rc $(NAME) $(OFILES)
+$(NAME) : $(OFILES) $(PF_OFILES)
+	ar rc $(NAME) $(OFILES) $(PF_OFILES)
 	ranlib $(NAME)
 
 $(OFILES) :
-	gcc $(CFLAGS) -c $(CFILES) $(HEAD)
+	gcc $(CFLAGS) -c $(CFILES) $(INCLUDES)
+
+$(PF_OFILES) :
+	gcc $(CFLAGS) -c $(PF_CFILES) $(PRINTF_INC) $(INCLUDES)
 
 clean :
 	$(RM) $(OFILES)
+	$(RM) $(PF_OFILES)
 
 fclean : clean
 	$(RM) $(NAME)

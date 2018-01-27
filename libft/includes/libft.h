@@ -6,13 +6,14 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 09:11:41 by nmei              #+#    #+#             */
-/*   Updated: 2017/12/15 23:12:36 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/26 15:55:43 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <string.h>
+# include <stdarg.h>
 
 typedef	struct		s_list
 {
@@ -130,5 +131,14 @@ typedef	struct		s_file
 }					t_file;
 
 int					ft_get_next_line(const int fd, char **line);
+
+/*
+**	ft_printf.c
+**	Main printf functions!
+**	Why have a vfprintf? See: https://stackoverflow.com/questions/1485805/
+*/
+
+int					ft_vfprintf(int fd, const char *format, va_list args);
+int					ft_printf(const char *format, ...);
 
 #endif
