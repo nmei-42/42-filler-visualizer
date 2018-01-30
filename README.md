@@ -55,8 +55,9 @@ left arrow (←): move back one turn
 right arrow (→): move forward one turn
 down arrow (↓): move forward 9x
 up arrow (↑): move backward 9x
-r: Reset game back to turn 0
 p: Print the current player, board, and piece to console
+f: Move the game state to the first turn
+l: Move the game state to the last turn
 esc: Quit :(
 ```
 The command "p" can be especially useful for troubleshooting as you can copy paste the console output into a .txt and then `cat console.txt |` to your filler binary.
