@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 18:28:08 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/26 19:38:11 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/29 11:30:14 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,8 @@ void		print_current_gs(t_envars *env)
 **	The following key are mapped:
 **	'esc' (53) = quit the program
 **	'p' (35) = printf the player, board, and piece for current game turn
-**	'r' (15) = reset the game back to turn 0
+**	'f' (3) = move the game state to turn 0
+**	'l'	(37) = move the game state to the last turn
 */
 
 int			keydown_hook(int key, t_envars *env)
@@ -100,9 +101,14 @@ int			keydown_hook(int key, t_envars *env)
 	{
 		print_current_gs(env);
 	}
-	if (key == 15)
+	if (key == 3)
 	{
 		env->curr_gs = env->g->first;
+		render(env);
+	}
+	if (key == 37)
+	{
+		env->curr_gs = env->g->last;
 		render(env);
 	}
 	return (0);
@@ -133,7 +139,7 @@ int			key_pressed_hook(int key, t_envars *e)
 	if (key == 126)
 		while (++i < 9)
 			e->curr_gs = (e->curr_gs->prev) ? e->curr_gs->prev : e->curr_gs;
-	if (!(key == 53 || key == 15 || key == 35))
+	if (!(key == 53 || key == 3 || key == 35 || key == 37))
 		render(e);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 19:55:50 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/25 18:43:03 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/29 11:22:53 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,8 @@ int			read_game(t_game *game, int fd, int argc, char *fpath)
 				break ;
 		}
 		close(fd);
+		if (game->last == NULL)
+			game->last = game->gss;
 		return (0);
 	}
 	else

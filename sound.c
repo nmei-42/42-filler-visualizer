@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 23:47:52 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/26 20:42:19 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/29 11:28:19 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void	choose_sound(t_envars *e, t_gslst *gs)
 			play_sound("afplay ./sounds/finish_him.mp3 &");
 		if (gs->turn == e->g->turn_rt - 1)
 		{
-			if (e->g->p1_rt > e->g->p2_rt)
+			if (e->g->p1_rt == e->g->p2_rt)
+				play_sound("afplay ./sounds/its_a_tie.mp3 &");
+			else if (e->g->p1_rt > e->g->p2_rt)
 				play_sound("afplay ./sounds/player_one_you_win.mp3 &");
 			else if (e->g->p2_rt > e->g->p1_rt)
 				play_sound("afplay ./sounds/player_two_you_win.mp3 &");
-			else
-				play_sound("afplay ./sounds/its_a_tie.mp3 &");
 		}
 		e->prev_turn = gs->turn;
 	}

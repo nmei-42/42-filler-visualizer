@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/14 09:52:48 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/26 20:42:10 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/29 11:29:49 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void			disp_info(int mode)
 		down arrow (↓): move forward 9x\n\
 		up arrow (↑): move backward 9x\n\
 		p: Print the current player, board, and piece to console\n\
-		r: Reset game back to turn 0\n\
+		f: Move the game state to the first turn\n\
+		l: Move the game state to the last turn\n\
 		esc: Quit :(\n\n");
 	}
 }
@@ -55,6 +56,7 @@ void			setup_game(t_game *game)
 	game->color_t_rt = NULL;
 	game->gss = NULL;
 	game->first = NULL;
+	game->last = NULL;
 }
 
 void			setup_env(t_envars *e)
