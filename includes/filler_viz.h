@@ -6,7 +6,7 @@
 /*   By: nmei <nmei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 18:30:14 by nmei              #+#    #+#             */
-/*   Updated: 2018/01/26 20:42:05 by nmei             ###   ########.fr       */
+/*   Updated: 2018/01/29 11:21:58 by nmei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct		s_gslst
 **	- Running Total of player 2's points
 **	- A pointer to our game states list
 **	- A pointer to the very first element of the game states list
+**	- A pointer to the very last element of the game states list
 */
 
 typedef struct		s_game
@@ -85,6 +86,7 @@ typedef struct		s_game
 	short			*color_t_rt;
 	t_gslst			*gss;
 	t_gslst			*first;
+	t_gslst			*last;
 }					t_game;
 
 /*
